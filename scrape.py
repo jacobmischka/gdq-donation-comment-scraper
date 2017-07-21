@@ -34,7 +34,7 @@ def get_comment(soup):
 	table = soup.find('table')
 	trs = table.find_all('tr')
 	td = trs[-1].find('td')
-	return '\n'.join(td.stripped_strings)
+	return ' '.join(td.stripped_strings).replace('\n', ' ')
 
 def get_num_pages():
 	soup = get_soup(BASE_URL + DONATIONS_URL)
